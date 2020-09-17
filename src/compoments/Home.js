@@ -8,7 +8,7 @@ import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
-import { Input  } from '@material-ui/core';
+import { Link  } from 'react-router-dom';
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -40,11 +40,13 @@ const Home = () => {
         onChange={e => setFilterText(e.target.value.toLocaleLowerCase())} />
       <br></br>
       <Grid container spacing={1}>
-        {itemsToDisplay.map(book => (
-          <Grid item xs={4}>
+        {itemsToDisplay.map((book, index) => (
+          <Grid item xs={4} key={index}>
             <Card className="bookCard">
               <CardActionArea>
+                <Link to={'/book/' + index}>
                 <CardMedia component="img" height="140" image="/index.png" title={book.title} />
+                </Link>
                 <CardContent>
                   <Typography variant="body2" color="textSecondary" component="p">
                     {book.title}
