@@ -27,6 +27,11 @@
   max-width: 345px;
 }
 
+
+.bookCard-sm {
+  max-width: 200px;
+}
+
 .Searchbar {
   display: block;
   width: 50%;
@@ -37,6 +42,11 @@
 .Search-header {
   text-align: center;
   color: dimgray;
+}
+
+.view-rate {
+  font-size:30px;
+
 }
 
 .App-link {
