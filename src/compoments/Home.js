@@ -8,7 +8,8 @@ import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
-import { Link  } from 'react-router-dom';
+import { Link } from "react-router-dom";
+import { saveState } from "../localStorage";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -18,6 +19,10 @@ const Home = () => {
   useEffect(() => {
     dispatch(fetchBooks());
   }, []);
+
+  saveState({
+    books: bookState.books
+  });
 
   const filteredBooks = React.useMemo(
     () =>
@@ -32,20 +37,15 @@ const Home = () => {
   return (
     <div>
       <h2 className="Search-header">Search to find your new book</h2>
-      <input
-        type="text"
-        className="Searchbar"
-        placeholder="Search.."
-        value={filterText}
-        onChange={e => setFilterText(e.target.value.toLocaleLowerCase())} />
+      <input type="text" className="Searchbar" placeholder="Search.." value={filterText} onChange={e => setFilterText(e.target.value.toLocaleLowerCase())} />
       <br></br>
       <Grid container spacing={1}>
         {itemsToDisplay.map((book, index) => (
           <Grid item xs={4} key={index}>
             <Card className="bookCard">
               <CardActionArea>
-                <Link to={'/book/' + index}>
-                <CardMedia component="img" height="140" image="/index.png" title={book.title} />
+                <Link to={"/book/" + index}>
+                  <CardMedia component="img" height="140" image="/index.png" title={book.title} />
                 </Link>
                 <CardContent>
                   <Typography variant="body2" color="textSecondary" component="p">

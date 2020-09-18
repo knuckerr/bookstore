@@ -8,14 +8,13 @@ export const fetchBooks = () => {
   return dispatch => {
     dispatch(fetchBooksRequest());
     axios
-      .get("https://gist.githubusercontent.com/knuckerr/d269f8ae90769eda639062c0a013ac6a/raw/25e5e821d958431cfc7b5f3803bb4e6e4582fe9d/books.json", {
+      .get("/books.json", {
         headers: {
           "Content-Type": "application/json"
         }
       })
       .then(response => {
         const books = response.data.books;
-
         dispatch(fetchBooksSuccess(books));
       })
       .catch(error => {
