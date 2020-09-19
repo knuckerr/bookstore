@@ -75,7 +75,7 @@ const View = () => {
       <br></br>
       <Grid container spacing={1}>
         <Grid item xs={6}>
-          <div>
+          <div class="bookView">
             <img src={"/index.png"} width="300" height="300" />
             <div>
               <Icon>account_circle md-48</Icon> {book.author}
@@ -91,7 +91,7 @@ const View = () => {
         </Grid>
         <Grid item xs={6}>
           <h3>{book.title}</h3>
-          <p>{book.description}</p>
+          <p className="Description">{book.description}</p>
           <Grid container spacing={1}>
             <Grid item xs={3}>
               <Button variant="contained" color="primary">

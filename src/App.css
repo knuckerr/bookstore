@@ -19,7 +19,7 @@
   border-style: solid;
   background-color: aliceblue;
   color: dimgray;
-  text-align:center;
+  text-align: center;
   padding: 8px;
 }
 
@@ -45,8 +45,7 @@
 }
 
 .view-rate {
-  font-size:30px;
-
+  font-size: 30px;
 }
 
 .App-link {
@@ -60,4 +59,41 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.label{
+  display: block;
+}
+
+.Form {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  padding-bottom: 20px;
+}
+
+.Form input {
+  width: 100%;
+  height: 30px;
+}
+
+.Form textarea {
+  width: 100%;
+  height: 100px;
+}
+
+.Add {
+  width: 50%;
+  display: block;
+  margin: 0 auto;
+}
+
+.bookView img {
+  display: block;
+  width: 70%;
+}
+
+.Description {
+  display: block;
+  overflow: auto;
+  max-height: 100px;
 }
