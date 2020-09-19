@@ -9,7 +9,6 @@ import CardMedia from "@material-ui/core/CardMedia";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
 import { Link } from "react-router-dom";
-import { saveState } from "../localStorage";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -20,19 +19,18 @@ const Home = () => {
     dispatch(fetchBooks());
   }, []);
 
-  saveState({
-    books: bookState.books
-  });
 
-  const filteredBooks = React.useMemo(
-    () =>
-      bookState.books.filter(book => {
-        return book.title.toLowerCase().includes(filterText);
-      }),
-    [filterText]
-  );
+  // filter by author , publisher, published
+  const filteredBooks = () => {
+      return bookState.books.filter(book => {
+        return book.title.toLowerCase().includes(filterText) ||
+          book.author.toLowerCase().includes(filterText) ||
+          book.publisher.toLowerCase().includes(filterText) ||
+          book.published.split("-")[0].includes(filterText)
+      })
+  };
 
-  const itemsToDisplay = filterText ? filteredBooks : bookState.books;
+  const itemsToDisplay = filterText ? filteredBooks() : bookState.books;
 
   return (
     <div>
@@ -44,7 +42,7 @@ const Home = () => {
           <Grid item xs={4} key={index}>
             <Card className="bookCard">
               <CardActionArea>
-                <Link to={"/book/" + index}>
+                <Link to={"/book/" + book.id}>
                   <CardMedia component="img" height="140" image="/index.png" title={book.title} />
                 </Link>
                 <CardContent>
