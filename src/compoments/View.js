@@ -52,9 +52,9 @@ const View = () => {
         {itemsToDisplay.map((book, index) => (
           <Card className="bookCard-sm">
             <CardActionArea>
-              <Link to={"/book/" + index}>
+              <a href={"/book/" + index}>
                 <CardMedia component="img" height="140" image="/index.png" title={book.title} />
-              </Link>
+              </a>
               <CardContent>
                 <Typography variant="body2" color="textSecondary" component="p">
                   {book.title}
