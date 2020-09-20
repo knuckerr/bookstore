@@ -42,9 +42,9 @@ const Home = () => {
           <Grid item xs={4} key={index}>
             <Card className="bookCard">
               <CardActionArea>
-                <Link to={"/book/" + book.id}>
+                <a href={"/book/" + book.id}>
                   <CardMedia component="img" height="140" image="/index.png" title={book.title} />
-                </Link>
+                </a>
                 <CardContent>
                   <Typography variant="body2" color="textSecondary" component="p">
                     {book.title}

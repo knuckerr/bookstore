@@ -3,6 +3,7 @@ import axios from "axios";
 export const FETCH_BOOKS_REQUEST = "FETCH_BOOKS_REQUEST";
 export const FETCH_BOOKS_SUCCESS = "FETCH_BOOKS_SUCCESS";
 export const FETCH_BOOKS_FAILURE = "FETCH_BOOKS_FAILURE";
+export const ADD_BOOK = "ADD_BOOK";
 
 export const fetchBooks = () => {
   return dispatch => {
@@ -23,9 +24,18 @@ export const fetchBooks = () => {
   };
 };
 
+
 export const fetchBooksRequest = () => {
   return {
     type: FETCH_BOOKS_REQUEST
+  };
+};
+
+
+export const addBook = (newItem) => {
+  return {
+    type: ADD_BOOK,
+    newItem: newItem
   };
 };
 

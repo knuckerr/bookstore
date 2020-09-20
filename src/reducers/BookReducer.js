@@ -1,6 +1,7 @@
-import {FETCH_BOOKS_REQUEST} from "../actions/BookActions";
+      import {FETCH_BOOKS_REQUEST} from "../actions/BookActions";
 import {FETCH_BOOKS_SUCCESS} from "../actions/BookActions";
 import {FETCH_BOOKS_FAILURE} from "../actions/BookActions";
+import {ADD_BOOK} from "../actions/BookActions";
 
 //
 //Initial state of books
@@ -17,6 +18,12 @@ export const bookReducer = (state = initialState, action) => {
       return {
         ...state,
         loading: true
+      };
+
+    case ADD_BOOK:
+      return {
+        ...state,
+        books: [...state.books, ...action.newItem]
       };
     case FETCH_BOOKS_SUCCESS:
       return {

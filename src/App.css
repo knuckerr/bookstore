@@ -27,7 +27,6 @@
   max-width: 345px;
 }
 
-
 .bookCard-sm {
   max-width: 250px;
 }
@@ -85,6 +84,12 @@
   width: 50%;
   display: block;
   margin: 0 auto;
+}
+.Add-buttons  {
+  display:grid;
+  grid-template-columns:auto auto 1fr;
+  padding-bottom: 23px;
+  grid-gap: 5px;
 }
 
 .bookView img {
